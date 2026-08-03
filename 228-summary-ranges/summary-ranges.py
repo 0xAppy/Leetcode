@@ -18,4 +18,14 @@ class Solution:
                     l = r
 
         return result 
-        
+
+#Optimal (Two Pointers)
+
+#l marks the start of current range
+#r keeps extending while numbers are consecutive
+#Range breaks? → save single number or full range
+#Move both pointers to start a new range
+#Repeat until all numbers are covered
+
+#TC → O(n)
+#SC → O(1)  (excluding output list)
