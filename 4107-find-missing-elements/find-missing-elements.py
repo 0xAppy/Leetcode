@@ -8,4 +8,12 @@ class Solution:
                 result.append(i)
 
         return result
-        
+
+#Brute
+
+#Check every number between minimum and maximum
+#Missing in array? → add to answer
+#Repeat until entire range is checked
+
+#TC → O((max - min) × n)
+#SC → O(1)  (excluding output list)    
