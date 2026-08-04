@@ -1,19 +1,15 @@
 class Solution:
     def findMissingElements(self, nums: List[int]) -> List[int]:
+        low, high = min(nums), max(nums)
+        set_nums = set(nums)
+        return [x for x in range(low, high) if x not in set_nums]
 
-        result = []
+#Optimal (HashSet)
 
-        for i in range(min(nums), max(nums)):
-            if i not in nums:
-                result.append(i)
+#Store min and max once
+#Convert array into a set for O(1) lookup
+#Check every number between low and high
+#Missing in set? → add to answer
 
-        return result
-
-#Brute
-
-#Check every number between minimum and maximum
-#Missing in array? → add to answer
-#Repeat until entire range is checked
-
-#TC → O((max - min) × n)
-#SC → O(1)  (excluding output list)    
+#TC → O(n + (high - low))
+#SC → O(n)
