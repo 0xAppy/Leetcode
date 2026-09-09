@@ -1,37 +1,23 @@
 class Solution:
     def hIndex(self, citations: List[int]) -> int:
+        citations.sort()
         n = len(citations)
 
-        # Edge Case
-        if n == 1 and citations[0] == 0:
-            return 0
-        elif n == 1:
-            return 1
+        for i in range(n):
+            h = n - i
+
+            if citations[i] >= h:
+                return h
         
-        citations.sort()
-        result = 0
+        return 0
 
-        h = 1
-        while h < n + 1:
-            temp = []
-            for num in citations:
-                if num >= h:
-                    temp.append(num)
-            if len(temp) >= h:
-                result += 1
-            else:
-                return result 
-            h += 1
-        return result
+#Optimal (Sorting + Greedy)
 
-#Brute
+#Sort citations → smallest to largest
+#At index i → there are n-i papers with at least this many citations
+#h = n-i → required number of papers
+#citations[i] >= h? → valid h-index found
+#First valid h while scanning left → maximum possible h
 
-#Try every possible h from 1 to n
-#For each h, count papers with citations >= h
-#At least h papers? → h is valid
-#First invalid h? → stop, previous h is answer
-#Sort first, but still scan all papers for every h
-
-#TC → O(n²)
-#SC → O(n)
-
+#TC → O(n log n)
+#SC → O(1) (ignoring sorting space)
