@@ -42,3 +42,16 @@ class Solution:
         start.next = after
 
         return head
+        
+# 01:28
+#Optimal (Linked List)
+
+#Find the left and right nodes of the section to reverse
+#Save the node after right → reconnect later
+#Reverse nodes from left to right
+#If left == 1 → reversed section becomes the new head
+#Otherwise → connect previous node to reversed section
+#Connect original left node to the node after right
+
+#TC → O(n)
+#SC → O(1)
