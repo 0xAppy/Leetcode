@@ -1,0 +1,7 @@
+SELECT c.name Customers
+FROM Customers c
+LEFT JOIN Orders o
+ON c.id = o.customerId
+WHERE o.customerId is NULL;
+
+# 00:04
